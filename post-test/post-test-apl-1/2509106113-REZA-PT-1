@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    string nama, password;
+    string namaBenar = "reza";
+    string passwordBenar = "113";
+    int salah = 0;
+
+    while (salah < 3) {
+        cout << "LOGIN PROGRAM\n";
+        cout << "Nama     : ";
+        cin >> nama;
+        cout << "Password : ";
+        cin >> password;
+
+        if (nama == namaBenar && password == passwordBenar) {
+            cout << "\nLogin berhasil\n";
+            break;
+        } else {
+            salah = salah + 1;
+            cout << "Login salah (" << salah << ")\n\n";
+        }
+
+        if (salah == 3) {
+            cout << "Anda salah 3 kali\n";
+            cout << "Program berhenti\n";
+            return 0;
+        }
+    }
+
+    // ===== MENU =====
+    int menu;
+    float nilai;
+
+    do {
+        cout << "\nMENU KONVERSI PANJANG\n";
+        cout << "1. Meter ke Kilometer & Centimeter\n";
+        cout << "2. Kilometer ke Meter & Centimeter\n";
+        cout << "3. Centimeter ke Meter & Kilometer\n";
+        cout << "4. Keluar\n";
+        cout << "Pilih menu: ";
+        cin >> menu;
+
+        if (menu == 1) {
+            cout << "Masukkan Meter: ";
+            cin >> nilai;
+            cout << "Kilometer  = " << nilai / 1000 << endl;
+            cout << "Centimeter = " << nilai * 100 << endl;
+        }
+        else if (menu == 2) {
+            cout << "Masukkan Kilometer: ";
+            cin >> nilai;
+            cout << "Meter      = " << nilai * 1000 << endl;
+            cout << "Centimeter = " << nilai * 100000 << endl;
+        }
+        else if (menu == 3) {
+            cout << "Masukkan Centimeter: ";
+            cin >> nilai;
+            cout << "Meter      = " << nilai / 100 << endl;
+            cout << "Kilometer  = " << nilai / 100000 << endl;
+        }
+        else if (menu == 4) {
+            cout << "Terima kasih\n";
+        }
+        else {
+            cout << "Menu tidak valid\n";
+        }
+
+    } while (menu != 4);
+
+    return 0;
+}
